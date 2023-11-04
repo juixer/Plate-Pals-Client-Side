@@ -1,6 +1,5 @@
 import Lottie from "lottie-react";
 import registerAni from "../../../public/register.json";
-import { FaGithub, FaGoogle } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 const Register = () => {
   return (

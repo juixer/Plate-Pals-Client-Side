@@ -2,7 +2,10 @@ import Lottie from "lottie-react";
 import loginAni from "../../../public/login.json";
 import { FaGithub, FaGoogle } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 const LogIn = () => {
+    const {name} = useAuth()
+
   const handleFormData = (e) => {
     e.preventDefault();
   };
