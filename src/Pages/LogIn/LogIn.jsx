@@ -1,14 +1,66 @@
 import Lottie from "lottie-react";
 import loginAni from "../../../public/login.json";
 import { FaGithub, FaGoogle } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 const LogIn = () => {
-    const {name} = useAuth()
+  const { googleLogin, signIn } = useAuth();
+  const navigate = useNavigate();
 
   const handleFormData = (e) => {
     e.preventDefault();
+    const form = e.target;
+
+    const email = form.email.value;
+    const password = form.password.value;
+    
+    signIn(email, password)
+    .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate('/')
+      })
+      .catch((err) =>
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500,
+        })
+      );
+    
   };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate('/')
+      })
+      .catch((err) =>
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `${err.message}`,
+          showConfirmButton: false,
+          timer: 1500,
+        })
+      );
+  };
+
   return (
     <div>
       <div className="flex md:flex-row flex-col gap-5 justify-center items-center">
@@ -51,7 +103,10 @@ const LogIn = () => {
             </p>
           </form>
           <div className="flex gap-5 mt-5 justify-center items-center">
-            <button className="bg-green-300 bg-opacity-50 px-4 py-2 rounded-lg hover:bg-emerald-300">
+            <button
+              onClick={handleGoogleLogin}
+              className="bg-green-300 bg-opacity-50 px-4 py-2 rounded-lg hover:bg-emerald-300"
+            >
               <FaGoogle className="text-3xl" />
             </button>
             <button className="bg-green-300 bg-opacity-50 px-4 py-2 rounded-lg hover:bg-emerald-300">
