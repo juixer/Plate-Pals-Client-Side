@@ -2,7 +2,7 @@ import { Card, Button } from "flowbite-react";
 
 const Fcards = () => {
   return (
-    <Card className="rounded-xl">
+    <Card className="rounded-xl hover:shadow-2xl duration-300 hover:border-green-300 hover:-rotate-1">
       <div className="space-y-3">
         <div className="flex justify-center items-center">
           <img
