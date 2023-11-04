@@ -1,7 +1,7 @@
 import { Carousel } from "flowbite-react";
 const Banner = () => {
   return (
-    <div className="my-10">
+    <div className="my-5">
       <div className="h-56 md:h-[500px] lg:h-[700px]">
         <Carousel slideInterval={5000}>
           <div className="w-full relative">

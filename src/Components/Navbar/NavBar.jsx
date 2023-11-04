@@ -2,8 +2,9 @@ import { Link, NavLink } from "react-router-dom";
 import { Button, Navbar } from 'flowbite-react';
 
 const NavBar = () => {
+  const user = null;
   return (
-    <div>
+    <div className="mt-5">
       <Navbar fluid rounded>
       <Navbar.Brand>
         <img src="https://i.ibb.co/Z69QK90/pngtree-fast-food-logo-png-image-5763171.png" className="mr-3 h-6 sm:h-9" alt="PlatePal Logo" />
@@ -18,9 +19,9 @@ const NavBar = () => {
           <NavLink className="font-semibold lg:text-xl hover:border-b-2 hover:border-green-600 " to={'/'}>Home</NavLink>
         </Navbar.Link>
         <Navbar.Link><NavLink className="font-semibold lg:text-xl hover:border-b-2 hover:border-green-600 " to={'/availableFoods'}>Available Foods</NavLink></Navbar.Link>
-        <Navbar.Link><NavLink className="font-semibold lg:text-xl hover:border-b-2 hover:border-green-600 " to={'/addFood'}>Add Food</NavLink></Navbar.Link>
+        {user? <><Navbar.Link><NavLink className="font-semibold lg:text-xl hover:border-b-2 hover:border-green-600 " to={'/addFood'}>Add Food</NavLink></Navbar.Link>
         <Navbar.Link><NavLink className="font-semibold lg:text-xl hover:border-b-2 hover:border-green-600 " to={'/manageFood'}>Manage My Foods</NavLink></Navbar.Link>
-        <Navbar.Link><NavLink className="font-semibold lg:text-xl hover:border-b-2 hover:border-green-600 " to={'/foodRequest'}>My Food Request</NavLink></Navbar.Link>
+        <Navbar.Link><NavLink className="font-semibold lg:text-xl hover:border-b-2 hover:border-green-600 " to={'/foodRequest'}>My Food Request</NavLink></Navbar.Link></> : ""}
       </Navbar.Collapse>
     </Navbar>
     </div>
