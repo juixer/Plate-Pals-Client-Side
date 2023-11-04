@@ -15,6 +15,8 @@ const Team = () => {
       .get("../../../public/volunteers.json")
       .then((res) => setTeams(res.data));
   }, []);
+
+  
   const settings = {
     dots: true,
     infinite: true,
@@ -23,6 +25,14 @@ const Team = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
