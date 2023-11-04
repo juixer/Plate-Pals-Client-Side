@@ -66,14 +66,6 @@ const Register = () => {
               </Link>
             </p>
           </form>
-          <div className="flex gap-5 mt-5 justify-center items-center">
-            <button className="bg-green-300 bg-opacity-50 px-4 py-2 rounded-lg hover:bg-emerald-300">
-              <FaGoogle className="text-3xl" />
-            </button>
-            <button className="bg-green-300 bg-opacity-50 px-4 py-2 rounded-lg hover:bg-emerald-300">
-              <FaGithub className="text-3xl" />
-            </button>
-          </div>
         </div>
       </div>
     </div>
