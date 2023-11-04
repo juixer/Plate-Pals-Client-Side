@@ -1,0 +1,26 @@
+.slick-arrow.slick-prev {
+  background: #16a34a;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  left: -5%;
+  transition: background-color 0.5s;
+}
+.slick-arrow.slick-next {
+  background: #16a34a;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  right: -5%;
+  transition: background-color 0.5s;
+}
+.slick-arrow.slick-prev:hover{
+  background: #166534;
+}
+.slick-arrow.slick-next:hover {
+  background: #166534;
+}
+
+.slick-slide {
+  padding: 10px;
+}

@@ -1,0 +1,38 @@
+[
+    {
+      "name": "Ashfakul Islam",
+      "img": "https://i.ibb.co/2nKyfTj/274808198-4667606203365496-6894605318969904409-n-removebg-preview.png",
+      "position": "Volunteer Coordinator",
+      "short_details": "Passionate about reducing food waste and ensuring surplus food reaches those in need."
+    },
+    {
+      "name": "Sara Anderson",
+      "img": "https://i.ibb.co/DM37Gj0/team2.png",
+      "position": "Food Collection Specialist",
+      "short_details": "The go-to person for collecting surplus food from donors and ensuring efficient sorting and distribution."
+    },
+    {
+      "name": "Michael Chen",
+      "img": "https://i.ibb.co/5j0HLCT/team5.png",
+      "position": "Outreach and Engagement Officer",
+      "short_details": "Responsible for community outreach, volunteer recruitment, and forging local partnerships."
+    },
+    {
+      "name": "Emily Brown",
+      "img": "https://i.ibb.co/wh3YM5K/team3.png",
+      "position": "Communications Manager",
+      "short_details": "Takes care of our communications and social media presence, keeping our followers updated."
+    },
+    {
+      "name": "Sophia Ramirez",
+      "img": "https://i.ibb.co/TLb1NJ3/team4.png",
+      "position": "Food Distribution Coordinator",
+      "short_details": "Ensures efficient and safe delivery of surplus food to those in need. Sophia is dedicated to making a positive impact on our community."
+    },
+    {
+      "name": "David Patel",
+      "img": "https://i.ibb.co/qknFWDc/team6.png",
+      "position": "Data Analyst",
+      "short_details": "Analyzes data related to surplus food donations and volunteer activities to make data-driven decisions."
+    }
+  ]
