@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import TeamCard from "./TeamCard";
-import axios from "axios";
 
 import '../Team/team.css'
 
@@ -11,9 +10,10 @@ import "slick-carousel/slick/slick-theme.css";
 const Team = () => {
   const [teams, setTeams] = useState([]);
   useEffect(() => {
-    axios
-      .get("../../../public/volunteers.json")
-      .then((res) => setTeams(res.data));
+
+    fetch('volunteers.json')
+    .then(res => res.json())
+    .then(data => setTeams(data))
   }, []);
 
   
