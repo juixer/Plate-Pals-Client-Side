@@ -1,7 +1,9 @@
+import Banner from "../../Components/Banner/Banner";
+
 const Home = () => {
     return(
-        <div className="bg-red-500">
-             <p> HELLO I Am Home </p>
+        <div className="space-y-5">
+             <Banner/>
         </div>
     )}
 export default Home;
