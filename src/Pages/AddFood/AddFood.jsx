@@ -1,12 +1,22 @@
 import { Label, TextInput, Textarea } from "flowbite-react";
 const AddFood = () => {
-    const handleFormData = e => {
-        e.preventDefault();
-        const form = e.target;
+  const handleFormData = (e) => {
+    e.preventDefault();
+    const form = e.target;
 
-        const food_name = form.name.value;
-        console.log(food_name);
+    const food_name = form.name.value;
+    const food_image = form.image.value;
+    const food_quantity = form.quantity.value;
+    const food_location = form.location.value;
+    const food_expire = form.expire.value;
+    const food_note = form.note.value;
+    const food_status = 'available';
+
+    const foodInfo = {
+        food_name, food_image, food_quantity, food_location, food_expire, food_note, food_status
     }
+    console.log(foodInfo);
+  };
   return (
     <div className="my-16">
       <h1 className="text-center text-3xl md:text-5xl font-bold">Add Food</h1>
@@ -34,6 +44,7 @@ const AddFood = () => {
             <TextInput
               id="food_image"
               type="text"
+              name="image"
               placeholder="Enter Your Food Image URL"
               required
               shadow
@@ -47,6 +58,7 @@ const AddFood = () => {
             <TextInput
               id="food_quantity"
               type="number"
+              name="quantity"
               placeholder="Enter Food Person Quantity"
               required
               shadow
@@ -60,6 +72,7 @@ const AddFood = () => {
             <TextInput
               id="food_location"
               type="text"
+              name="location"
               placeholder="Enter Pickup Location"
               required
               shadow
@@ -70,7 +83,13 @@ const AddFood = () => {
             <div className="mb-2 block">
               <Label htmlFor="food_expire" value="Expire Date" />
             </div>
-            <TextInput id="food_expire" type="date" required shadow />
+            <TextInput
+              id="food_expire"
+              name="expire"
+              type="date"
+              required
+              shadow
+            />
           </div>
           {/* input */}
           <div>
@@ -81,10 +100,13 @@ const AddFood = () => {
               id="comment"
               placeholder="Enter Your Notes..."
               required
+              name="note"
               rows={4}
             />
           </div>
-          <button className="w-full font-bold bg-gradient-to-r from-teal-500 via-emerald-500 to-teal-500 py-2 rounded-md">Add Food</button>
+          <button className="w-full font-bold bg-gradient-to-r from-teal-500 via-emerald-500 to-teal-500 py-2 rounded-md">
+            Add Food
+          </button>
         </form>
       </div>
     </div>
