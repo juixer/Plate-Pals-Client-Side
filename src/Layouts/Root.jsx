@@ -6,7 +6,7 @@ import Lottie from "lottie-react";
 const Root = () => {
   const navigation = useNavigation();
   return (
-    <div className="max-w-screen-2xl mx-auto px-3 my-5">
+    <div className="max-w-screen-2xl mx-auto px-3 mt-5 mb-16">
       <NavBar />
       {navigation.state === "loading" ? (
         <div className=" flex justify-center items-center text-5xl md:text-9xl py-44 font-bold">
