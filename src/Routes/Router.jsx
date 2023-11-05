@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPAge/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import AvailableFoods from "../Pages/AvailableFoods/AvailableFoods";
+import SingleFood from "../Pages/SingleFood/SingleFood";
 
 const Router = createBrowserRouter([
   {
@@ -35,9 +36,19 @@ const Router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path:'/availableFoods',
-        element: <AvailableFoods/>
-      }
+        path: "/availableFoods",
+        element: <AvailableFoods />,
+      },
+      {
+        path: "/food/:id",
+        element: (
+          <PrivateRoute>
+            <SingleFood />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/api/food/${params.id}`),
+      },
     ],
   },
 ]);
