@@ -42,7 +42,7 @@ const Team = () => {
       </h1>
       <div className="my-10">
         <Slider {...settings}>
-          {teams.map((team, i) => <TeamCard key={i} team={team}/>)}
+          {teams.map((team) => <TeamCard key={team._id} team={team}/>)}
         </Slider>
       </div>
     </div>
