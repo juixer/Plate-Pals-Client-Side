@@ -8,6 +8,7 @@ import ErrorPage from "../Pages/ErrorPAge/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import AvailableFoods from "../Pages/AvailableFoods/AvailableFoods";
 import SingleFood from "../Pages/SingleFood/SingleFood";
+import ManageMyFoods from "../Pages/ManageMyFood/ManageMyFoods";
 
 const Router = createBrowserRouter([
   {
@@ -48,6 +49,14 @@ const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/api/food/${params.id}`),
+      },
+      {
+        path: "/manageFood",
+        element: (
+          <PrivateRoute>
+            <ManageMyFoods />
+          </PrivateRoute>
+        ),
       },
     ],
   },
