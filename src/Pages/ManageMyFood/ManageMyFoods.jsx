@@ -4,6 +4,7 @@ import useAuth from "../../Hooks/useAuth";
 import { useTable } from "react-table";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ManageMyFoods = () => {
   const { user } = useAuth();
@@ -77,7 +78,7 @@ const ManageMyFoods = () => {
         axios
           .delete(`http://localhost:5000/api/myFood/${rowData._id}`)
           .then(() => {});
-          
+
         Swal.fire("Deleted!", "Your item has been deleted.", "success");
         setTimeout(() => {
           window.location.reload();
@@ -88,6 +89,7 @@ const ManageMyFoods = () => {
 
   return (
     <div className="my-10 space-y-5 lg:mb-36">
+        <Helmet><title>PlatePals | Manage Food</title></Helmet>
       <h1 className="text-center text-3xl md:text-5xl font-bold">My Foods</h1>
 
       <div className="max-w-screen-lg mx-auto flex justify-center items-center">
@@ -112,7 +114,7 @@ const ManageMyFoods = () => {
                     return (
                       <td
                         {...cell.getCellProps()}
-                        className="border-2  font-semibold"
+                        className="border-2  font-semibold text-center"
                       >
                         {cell.render("Cell")}
                       </td>
