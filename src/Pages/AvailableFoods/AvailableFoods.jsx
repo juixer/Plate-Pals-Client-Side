@@ -1,11 +1,18 @@
 import axios from "axios";
-import { Button, Select } from "flowbite-react";
+import { Select } from "flowbite-react";
 import { useEffect, useState } from "react";
 import AvailableFoodCard from "./AvailableFoodCard";
 
 const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
-
+// search
+  const handleSearch = e => {
+    e.preventDefault();
+    const name = e.target.search.value;
+    axios.get(`http://localhost:5000/api/foods?name=${name}`)
+    .then(res => setFoods(res.data))
+  }
+// sort 
   const handleExpireFood = (e) => {
     const selectedValue = e.target.value;
 
@@ -32,16 +39,16 @@ const AvailableFoods = () => {
   return (
     <div className="my-16">
       <div className="max-w-xl mx-auto ">
-        <form className="flex justify-center items-center gap-5 flex-col md:flex-row">
+        <form onSubmit={handleSearch} className="flex justify-center items-center gap-5 flex-col md:flex-row">
           <input
             className="w-full rounded-lg"
             type="text"
             name="search"
             placeholder="Search your food"
           />
-          <Button gradientMonochrome="lime" className="font-bold">
+          <button className="font-bold bg-emerald-300 px-3 py-2  rounded-lg">
             Search
-          </Button>
+          </button>
         </form>
       </div>
       <div>
