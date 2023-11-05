@@ -6,14 +6,14 @@ import '../Team/team.css'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import axios from "axios";
 
 const Team = () => {
   const [teams, setTeams] = useState([]);
   useEffect(() => {
 
-    fetch('http://localhost:5000/api/teams')
-    .then(res => res.json())
-    .then(data => setTeams(data))
+   axios.get('http://localhost:5000/api/teams')
+   .then(res => setTeams(res.data))
   }, []);
 
   

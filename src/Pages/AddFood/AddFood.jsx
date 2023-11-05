@@ -4,6 +4,8 @@ import Lottie from "lottie-react";
 import addFoodAni from "../../../public/addfood.json";
 import useAuth from "../../Hooks/useAuth";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
+import Swal from "sweetalert2";
 const AddFood = () => {
   const {user} = useAuth()
 
@@ -34,7 +36,20 @@ const AddFood = () => {
       donator_name,
       donator_image
     };
-    console.log(foodInfo);
+    axios.post('http://localhost:5000/api/foods', foodInfo)
+    .then(res => {
+      const inserted = res.data.insertedId
+      if(inserted){
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your food has been added",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        form.reset()
+      }
+    })
   };
   return (
     <div className="my-16">
