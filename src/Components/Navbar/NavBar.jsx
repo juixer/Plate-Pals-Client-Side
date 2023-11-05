@@ -43,7 +43,7 @@ const NavBar = () => {
           {user ? (
             <div className="relative">
              <img onClick={handleDropDown} src={user?.photoURL} className="w-12 h-12 cursor-pointer rounded-full"/>
-             <div className={`${toggle? "hidden": "inline"} space-y-2 bg-gray-200 p-4 absolute  right-1 top-16 rounded-xl z-50`} >
+             <div className={`${toggle? "hidden": "inline"} space-y-2 bg-gray-100 p-4 absolute  right-1 top-16 rounded-xl z-50`} >
               <h1 className="font-bold">{user?.displayName}</h1>
               <h1 className="font-medium">{user?.email}</h1>
               <Button onClick={handleSignOut} className="font-bold w-full bg-emerald-500">
