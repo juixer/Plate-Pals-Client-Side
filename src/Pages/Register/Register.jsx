@@ -3,6 +3,7 @@ import registerAni from "../../../public/register.json";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const Register = () => {
   const { createUser, updateUser } = useAuth();
   const navigate = useNavigate();
@@ -62,6 +63,7 @@ const Register = () => {
   };
   return (
     <div className="my-16">
+      <Helmet><title>PlatePals | Register</title></Helmet>
       <div className="flex md:flex-row flex-col gap-5 justify-center items-center">
         <div className="w-80 md:w-[400px]">
           <Lottie animationData={registerAni} />

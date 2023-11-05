@@ -28,8 +28,7 @@ const NavBar = () => {
   return (
     <div className="mt-5">
       <Navbar fluid rounded>
-        <Navbar.Brand>
-          <Link to={'/'} className="flex items-center justify-center">
+        <Link to={'/'} className="flex">
             <img
               src="https://i.ibb.co/Z69QK90/pngtree-fast-food-logo-png-image-5763171.png"
               className="mr-3 h-6 sm:h-9"
@@ -39,8 +38,7 @@ const NavBar = () => {
               <span className="text-green-500">P</span>late
               <span className="text-green-500">P</span>als
             </span>
-          </Link>
-        </Navbar.Brand>
+        </Link>
         <div className="flex md:order-2">
           {user ? (
             <div className="relative">

@@ -4,6 +4,7 @@ import { FaGithub, FaGoogle } from "react-icons/fa6";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const LogIn = () => {
   const { googleLogin, signIn } = useAuth();
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ const LogIn = () => {
 
   return (
     <div>
+      <Helmet><title>PlatePals | LogIn</title></Helmet>
       <div className="flex md:flex-row flex-col gap-5 justify-center items-center">
         <div>
           <Lottie animationData={loginAni} />

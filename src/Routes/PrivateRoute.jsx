@@ -1,4 +1,3 @@
-import Lottie from "lottie-web";
 import useAuth from "../Hooks/useAuth";
 import { Navigate, useLocation } from "react-router";
 import { BallTriangle } from "react-loader-spinner";

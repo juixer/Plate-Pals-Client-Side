@@ -2,7 +2,11 @@ import { Label, TextInput, Textarea } from "flowbite-react";
 import Lottie from "lottie-react";
 
 import addFoodAni from "../../../public/addfood.json";
+import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 const AddFood = () => {
+  const {user} = useAuth()
+
   const handleFormData = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,6 +18,9 @@ const AddFood = () => {
     const food_expire = form.expire.value;
     const food_note = form.note.value;
     const food_status = "available";
+    const donator_name = user?.displayName;
+    const donator_image = user?.photoURL;
+    const donator_email = user?.email;
 
     const foodInfo = {
       food_name,
@@ -23,11 +30,15 @@ const AddFood = () => {
       food_expire,
       food_note,
       food_status,
+      donator_email,
+      donator_name,
+      donator_image
     };
     console.log(foodInfo);
   };
   return (
     <div className="my-16">
+      <Helmet><title>PlatePals | Add Food</title></Helmet>
       <div className="flex md:flex-row flex-col gap-5 justify-center items-center">
         <div>
           <Lottie animationData={addFoodAni} />
