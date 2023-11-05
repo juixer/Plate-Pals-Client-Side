@@ -5,6 +5,8 @@ import { useTable } from "react-table";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import updateAni from "../../../public/update.json";
+import Lottie from "lottie-react";
 
 const ManageMyFoods = () => {
   const { user } = useAuth();
@@ -88,44 +90,59 @@ const ManageMyFoods = () => {
   };
 
   return (
-    <div className="my-10 space-y-5 lg:mb-36">
-        <Helmet><title>PlatePals | Manage Food</title></Helmet>
-      <h1 className="text-center text-3xl md:text-5xl font-bold">My Foods</h1>
+    <div className="my-10 lg:mb-36">
+      <Helmet>
+        <title>PlatePals | Manage Food</title>
+      </Helmet>
+      {foods.length === 0 ? (
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-center text-3xl md:text-5xl font-bold mb-5">
+            No food items have been donated yet
+          </h1>
+          <Lottie animationData={updateAni} loop={true} />
+        </div>
+      ) : (
+        <div className="space-y-5">
+          <h1 className="text-center text-3xl md:text-5xl font-bold">
+            My Donations
+          </h1>
 
-      <div className="max-w-screen-lg mx-auto flex justify-center items-center">
-        <table {...getTableProps()}>
-          <thead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()} className="border-2">
-                    {column.render("Header")}
-                  </th>
+          <div className="max-w-screen-lg mx-auto flex justify-center items-center">
+            <table {...getTableProps()}>
+              <thead>
+                {headerGroups.map((headerGroup) => (
+                  <tr {...headerGroup.getHeaderGroupProps()}>
+                    {headerGroup.headers.map((column) => (
+                      <th {...column.getHeaderProps()} className="border-2">
+                        {column.render("Header")}
+                      </th>
+                    ))}
+                  </tr>
                 ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody {...getTableBodyProps()}>
-            {rows.map((row) => {
-              prepareRow(row);
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map((cell) => {
-                    return (
-                      <td
-                        {...cell.getCellProps()}
-                        className="border-2  font-semibold text-center"
-                      >
-                        {cell.render("Cell")}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+              </thead>
+              <tbody {...getTableBodyProps()}>
+                {rows.map((row) => {
+                  prepareRow(row);
+                  return (
+                    <tr {...row.getRowProps()}>
+                      {row.cells.map((cell) => {
+                        return (
+                          <td
+                            {...cell.getCellProps()}
+                            className="border-2  font-semibold text-center"
+                          >
+                            {cell.render("Cell")}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
