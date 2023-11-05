@@ -72,7 +72,7 @@ const FoodRequestCard = ({ req }) => {
             Request Date: <span className="font-semibold"> {request_date}</span>
           </p>
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            Donate Amount: <span className="font-semibold"> {money}</span>BDT
+            Donate Amount: <span className="font-semibold"> {money? money : 0}</span>BDT
           </p>
         </div>
         <div className="mt-4 flex justify-center items-center flex-col space-x-3 lg:mt-6 space-y-1">

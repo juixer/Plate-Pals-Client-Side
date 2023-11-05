@@ -43,7 +43,7 @@ const SingleFood = () => {
     const requester_email = user?.email;
     const request_date = e.target.request_date.value;
     const money = e.target.money.value;
-    const food_note = e.target.note.value;
+    const requester_note = e.target.notes.value;
 
     const request = {
       food_status,
@@ -52,7 +52,7 @@ const SingleFood = () => {
       requester_email,
       request_date,
       money,
-      food_note,
+      requester_note,
     };
     
     axios
@@ -322,14 +322,13 @@ const SingleFood = () => {
                     <Label
                       className="text-xl"
                       htmlFor="comment"
-                      value="Add Notes"
+                      value="Additional Notes"
                     />
                   </div>
                   <Textarea
                     id="comment"
                     placeholder="Enter Your Notes..."
-                    defaultValue={food_note}
-                    name="note"
+                    name="notes"
                     rows={4}
                   />
                 </div>

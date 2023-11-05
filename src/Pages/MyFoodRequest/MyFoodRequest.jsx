@@ -4,6 +4,7 @@ import axios from "axios";
 import FoodRequestCard from "./FoodRequestCard";
 import updateAni from "../../../public/update.json";
 import Lottie from "lottie-react";
+import { Helmet } from "react-helmet-async";
 
 const MyFoodRequest = () => {
   const [requests, setRequests] = useState([]);
@@ -17,6 +18,7 @@ const MyFoodRequest = () => {
   }, [user.email]);
   return (
     <div className="my-16">
+      <Helmet><title>PlatePals | Food Request</title></Helmet>
       {requests.length === 0 ? (
         <div className="max-w-2xl mx-auto">
           <h1 className="text-center text-3xl md:text-5xl font-bold mb-5">

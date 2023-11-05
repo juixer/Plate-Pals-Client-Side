@@ -17,6 +17,7 @@ const ManageOrder = () => {
     food_image,
     food_status,
     food_name,
+    requester_note
   } = order;
   
 
@@ -77,8 +78,12 @@ const ManageOrder = () => {
                   <span className="font-bold ml-2">{request_date}</span>
                 </h1>
                 <h1>
+                  Requester Note:
+                  <span className="font-bold ml-2">{requester_note}</span>
+                </h1>
+                <h1>
                   Wants to Donate:
-                  <span className="font-bold ml-2">{money}</span>
+                  <span className="font-bold ml-2">{money? money : 0}</span>
                   BDT
                 </h1>
                 <div>
