@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { useTable } from "react-table";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ManageMyFoods = () => {
   const { user } = useAuth();
@@ -63,8 +64,26 @@ const ManageMyFoods = () => {
     });
 
   const handleDelete = (rowData) => {
-    // Handle delete action for the selected row
-    console.log("Delete clicked for row:", rowData);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:5000/api/myFood/${rowData._id}`)
+          .then(() => {});
+          
+        Swal.fire("Deleted!", "Your item has been deleted.", "success");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      }
+    });
   };
 
   return (
