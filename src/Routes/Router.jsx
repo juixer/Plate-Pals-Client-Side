@@ -61,7 +61,11 @@ const Router = createBrowserRouter([
       },
       {
         path: "/update/:id",
-        element: <UpdateFood />,
+        element: (
+          <PrivateRoute>
+            <UpdateFood />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/api/food/${params.id}`),
       },

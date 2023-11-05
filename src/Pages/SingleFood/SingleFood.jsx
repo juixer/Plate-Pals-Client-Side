@@ -1,17 +1,21 @@
 import { Card, Label, Modal, TextInput, Textarea } from "flowbite-react";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { useLoaderData } from "react-router";
+import { useLoaderData,useNavigate } from "react-router";
 import useAuth from "../../Hooks/useAuth";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const SingleFood = () => {
   // user
-    const{user} = useAuth()
+  const { user } = useAuth();
   const food = useLoaderData();
   //   modal
   const [openModal, setOpenModal] = useState(false);
   //   time
   const currentDate = new Date().toLocaleString();
+  // navigate 
+  const navigate = useNavigate()
 
   function onCloseModal() {
     setOpenModal(false);
@@ -29,6 +33,43 @@ const SingleFood = () => {
     donator_image,
     donator_email,
   } = food;
+
+  const handleFormData = (e) => {
+    e.preventDefault();
+
+    const food_status = "pending";
+    const requester_name = user?.displayName;
+    const requester_image = user?.photoURL;
+    const requester_email = user?.email;
+    const request_date = e.target.request_date.value;
+    const money = e.target.money.value;
+    const food_note = e.target.note.value;
+
+    const request = {
+      food_status,
+      requester_name,
+      requester_image,
+      requester_email,
+      request_date,
+      money,
+      food_note,
+    };
+    
+    axios
+      .patch(`http://localhost:5000/api/request/${_id}`, request)
+      .then((res) => {
+        console.log(res.data)
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your food has been added",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+      });
+  };
+
   return (
     <Card className="max-w-5xl mx-auto my-10">
       <Helmet>
@@ -78,7 +119,7 @@ const SingleFood = () => {
           </div>
           <button
             onClick={() => setOpenModal(true)}
-            className="bg-emerald-300 py-2 px-3 rounded-lg"
+            className="bg-emerald-300 py-2 px-3 rounded-lg w-full"
           >
             Request
           </button>
@@ -86,7 +127,7 @@ const SingleFood = () => {
           <Modal show={openModal} onClose={onCloseModal} popup>
             <Modal.Header />
             <Modal.Body>
-              <form className="space-y-5">
+              <form className="space-y-5" onSubmit={handleFormData}>
                 {/* input */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div>
@@ -193,7 +234,7 @@ const SingleFood = () => {
                     </div>
                     <TextInput
                       id="food_request"
-                      name="request"
+                      name="request_date"
                       type="text"
                       defaultValue={currentDate}
                       shadow

@@ -26,7 +26,7 @@ const ManageMyFoods = () => {
         Header: "Action",
         accessor: "Action",
         Cell: ({ row }) => (
-          <div className="p-2 space-x-2">
+          <div className="p-2 space-x-2 space-y-2">
             <Link to={`/update/${row.original._id}`}>
               <button className=" bg-emerald-300 px-3 font-semibold py-2 rounded-lg">
                 Edit
