@@ -23,14 +23,14 @@ const AvailableFoodCard = ({ food }) => {
           {food_name}
         </h5>
         <div className="ml-5">
-          <h1 className="font-medium text-xl">
+          <h1 className="font-medium">
             <span className="font-bold">Food Quantity:</span> {food_quantity}{" "}
             Person
           </h1>
-          <h1 className="font-medium text-xl">
+          <h1 className="font-medium">
             <span className="font-bold">Pickup Location:</span> {food_location}
           </h1>
-          <h1 className="font-medium text-xl">
+          <h1 className="font-medium">
             <span className="font-bold">Expired data:</span> {food_expire}
           </h1>
           <p>
@@ -38,12 +38,12 @@ const AvailableFoodCard = ({ food }) => {
           </p>
         </div>
         <div className="flex  justify-between items-center">
-          <div className="flex items-center gap-4 my-2">
+          <div className="flex items-center gap-4my-2">
             <img
               src={donator_image}
               className="w-10 rounded-full border h-10 object-contain"
             />
-            <h1 className="font-bold text-xl">{donator_name}</h1>
+            <h1 className="font-bold ml-2 text-base md:text-xl">{donator_name}</h1>
           </div>
           <Link to={`/food/${_id}`}>
             <Button className="h-10" gradientDuoTone="greenToBlue">

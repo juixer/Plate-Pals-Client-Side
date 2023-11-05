@@ -26,7 +26,7 @@ const NavBar = () => {
       .catch((err) => console.log(err.message));
   };
   return (
-    <div className="mt-5">
+    <div className="mt-5 sticky top-0 z-50">
       <Navbar fluid rounded>
         <Link to={'/'} className="flex">
             <img

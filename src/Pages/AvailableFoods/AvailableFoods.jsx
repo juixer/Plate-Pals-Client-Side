@@ -2,17 +2,19 @@ import axios from "axios";
 import { Select } from "flowbite-react";
 import { useEffect, useState } from "react";
 import AvailableFoodCard from "./AvailableFoodCard";
+import { Helmet } from "react-helmet-async";
 
 const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
-// search
-  const handleSearch = e => {
+  // search
+  const handleSearch = (e) => {
     e.preventDefault();
     const name = e.target.search.value;
-    axios.get(`http://localhost:5000/api/foods?name=${name}`)
-    .then(res => setFoods(res.data))
-  }
-// sort 
+    axios
+      .get(`http://localhost:5000/api/foods?name=${name}`)
+      .then((res) => setFoods(res.data));
+  };
+  // sort
   const handleExpireFood = (e) => {
     const selectedValue = e.target.value;
 
@@ -38,8 +40,12 @@ const AvailableFoods = () => {
   }, []);
   return (
     <div className="my-16">
+        <Helmet><title>PlatePals | Available Foods</title></Helmet>
       <div className="max-w-xl mx-auto ">
-        <form onSubmit={handleSearch} className="flex justify-center items-center gap-5 flex-col md:flex-row">
+        <form
+          onSubmit={handleSearch}
+          className="flex justify-center items-center gap-5 flex-col md:flex-row"
+        >
           <input
             className="w-full rounded-lg"
             type="text"
@@ -51,21 +57,22 @@ const AvailableFoods = () => {
           </button>
         </form>
       </div>
-      <div>
-        <form className="flex justify-end">
-          <div className="max-w-md">
-            <Select onChange={handleExpireFood} name="expire">
-              <option value="">Default Sorted Food</option>
-              <option value="short">Soonest to Expire</option>
-              <option value="long">Latest to Expire</option>
-            </Select>
-          </div>
-        </form>
-      </div>
-      <div>
+
+      <div className="my-10">
         <h1 className="text-center text-3xl md:text-5xl font-bold">
           Food Available: {foods.length}
         </h1>
+        <div className="mt-8">
+          <form className="flex justify-end">
+            <div className="max-w-md">
+              <Select onChange={handleExpireFood} name="expire">
+                <option value="">Default Sorted Food</option>
+                <option value="short">Soonest to Expire</option>
+                <option value="long">Latest to Expire</option>
+              </Select>
+            </div>
+          </form>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10 mt-10">
           {foods.map((food) => {
             return <AvailableFoodCard key={food._id} food={food} />;
