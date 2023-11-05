@@ -6,6 +6,7 @@ import LogIn from "../Pages/LogIn/LogIn";
 import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPAge/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import AvailableFoods from "../Pages/AvailableFoods/AvailableFoods";
 
 const Router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const Router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path:'/availableFoods',
+        element: <AvailableFoods/>
+      }
     ],
   },
 ]);
