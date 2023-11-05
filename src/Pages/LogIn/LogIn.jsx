@@ -1,12 +1,13 @@
 import Lottie from "lottie-react";
 import loginAni from "../../../public/login.json";
 import { FaGithub, FaGoogle } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 const LogIn = () => {
   const { googleLogin, signIn } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation()
 
   const handleFormData = (e) => {
     e.preventDefault();
@@ -24,7 +25,7 @@ const LogIn = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate('/')
+        navigate(location.state ? location?.state : "/")
       })
       .catch((err) =>
         Swal.fire({
@@ -48,7 +49,7 @@ const LogIn = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate('/')
+        navigate(location.state ? location?.state : "/")
       })
       .catch((err) =>
         Swal.fire({

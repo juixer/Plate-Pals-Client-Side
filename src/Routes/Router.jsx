@@ -5,12 +5,13 @@ import AddFood from "../Pages/AddFood/AddFood";
 import LogIn from "../Pages/LogIn/LogIn";
 import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPAge/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -18,15 +19,19 @@ const Router = createBrowserRouter([
       },
       {
         path: "/addFood",
-        element: <AddFood />,
+        element: (
+          <PrivateRoute>
+            <AddFood />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
         element: <LogIn />,
       },
       {
-        path:'/register',
-        element: <Register/>,
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
