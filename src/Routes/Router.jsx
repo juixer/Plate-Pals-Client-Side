@@ -11,6 +11,7 @@ import SingleFood from "../Pages/SingleFood/SingleFood";
 import ManageMyFoods from "../Pages/ManageMyFood/ManageMyFoods";
 import UpdateFood from "../Pages/UpdateFood/UpdateFood";
 import ManageOrder from "../Pages/MangeOrder/ManageOrder";
+import MyFoodRequest from "../Pages/MyFoodRequest/MyFoodRequest";
 
 const Router = createBrowserRouter([
   {
@@ -71,10 +72,19 @@ const Router = createBrowserRouter([
           fetch(`http://localhost:5000/api/food/${params.id}`),
       },
       {
-        path: '/manage/:id',
-        element: <ManageOrder/>,
-        loader: ({ params }) => fetch(`http://localhost:5000/api/pendingFoods/${params.id}`),
-      }
+        path: "/manage/:id",
+        element: <ManageOrder />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/api/pendingFoods/${params.id}`),
+      },
+      {
+        path: "/foodRequest",
+        element: (
+          <PrivateRoute>
+            <MyFoodRequest />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
