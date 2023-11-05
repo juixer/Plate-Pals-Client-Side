@@ -11,7 +11,7 @@ const Team = () => {
   const [teams, setTeams] = useState([]);
   useEffect(() => {
 
-    fetch('volunteers.json')
+    fetch('http://localhost:5000/api/teams')
     .then(res => res.json())
     .then(data => setTeams(data))
   }, []);
