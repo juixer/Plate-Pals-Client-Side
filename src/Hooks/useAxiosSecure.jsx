@@ -28,7 +28,8 @@ const useAxiosSecure = () => {
         }
       }
     );
-  }, []);
+  }, [logOut, navigate]);
+  return axiosSecure
 };
 
 export default useAxiosSecure;

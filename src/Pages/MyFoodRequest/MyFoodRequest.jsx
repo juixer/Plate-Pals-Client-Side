@@ -6,19 +6,18 @@ import updateAni from "../../../public/update.json";
 import Lottie from "lottie-react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const MyFoodRequest = () => {
   const [requests, setRequests] = useState([]);
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure()
+  const url = `/api/myRequest?email=${user.email}`
+
   useEffect(() => {
-    axios
-      .get(`https://platepals.vercel.app/api/myRequest?email=${user.email}`, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        setRequests(res.data);
-      });
-  }, [user.email]);
+    axiosSecure.get(url)
+    .then(res => setRequests(res.data))
+  }, [url,axiosSecure]);
   return (
     <motion.div
       className="my-16"

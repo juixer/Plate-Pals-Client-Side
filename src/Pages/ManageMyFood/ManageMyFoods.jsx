@@ -8,18 +8,16 @@ import { Helmet } from "react-helmet-async";
 import updateAni from "../../../public/update.json";
 import Lottie from "lottie-react";
 import { motion } from "framer-motion";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const ManageMyFoods = () => {
   const { user } = useAuth();
   const [foods, setFoods] = useState([]);
-
+  const axiosSecure = useAxiosSecure();
+  const url = `/api/myFood?email=${user.email}`;
   useEffect(() => {
-    axios
-      .get(`https://platepals.vercel.app/api/myFood?email=${user.email}`, {
-        withCredentials: true,
-      })
-      .then((res) => setFoods(res.data));
-  }, [user.email]);
+    axiosSecure.get(url).then((res) => setFoods(res.data));
+  }, [url, axiosSecure]);
 
   const columns = React.useMemo(
     () => [

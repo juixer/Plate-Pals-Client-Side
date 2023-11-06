@@ -74,7 +74,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [user]);
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
