@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
+
 const Register = () => {
   const { createUser, updateUser } = useAuth();
   const navigate = useNavigate();
@@ -62,7 +64,15 @@ const Register = () => {
       });
   };
   return (
-    <div data-aos="zoom-out-right" className="my-16">
+    <motion.div  className="my-16"
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{
+      duration: 0.8,
+      delay: 0.5,
+      ease: [0, 0.71, 0.2, 1.01]
+    }}
+    >
       <Helmet><title>PlatePals | Register</title></Helmet>
       <div className="flex md:flex-row flex-col gap-5 justify-center items-center">
         <div className="w-80 md:w-[400px]">
@@ -134,7 +144,7 @@ const Register = () => {
           </form>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default Register;

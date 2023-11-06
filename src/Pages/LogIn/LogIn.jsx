@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
+
 const LogIn = () => {
   const { googleLogin, signIn } = useAuth();
   const navigate = useNavigate();
@@ -64,11 +66,17 @@ const LogIn = () => {
   };
 
   return (
-    <div data-aos="zoom-out-right">
+    <motion.div initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{
+      duration: 0.8,
+      delay: 0.5,
+      ease: [0, 0.71, 0.2, 1.01]
+    }}>
       <Helmet><title>PlatePals | LogIn</title></Helmet>
       <div className="flex md:flex-row flex-col gap-5 justify-center items-center">
         <div>
-          <Lottie animationData={loginAni} />
+          <Lottie animationData={loginAni} loop={false}/>
         </div>
         <div className="max-w-xl w-full">
           <h1 className="text-center text-3xl md:text-5xl font-bold">Log In</h1>
@@ -118,7 +126,7 @@ const LogIn = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default LogIn;

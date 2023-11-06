@@ -5,6 +5,7 @@ import FoodRequestCard from "./FoodRequestCard";
 import updateAni from "../../../public/update.json";
 import Lottie from "lottie-react";
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
 
 const MyFoodRequest = () => {
   const [requests, setRequests] = useState([]);
@@ -17,7 +18,15 @@ const MyFoodRequest = () => {
       });
   }, [user.email]);
   return (
-    <div data-aos="zoom-out-right" className="my-16">
+    <motion.div className="my-16"
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{
+      duration: 0.8,
+      delay: 0.5,
+      ease: [0, 0.71, 0.2, 1.01]
+    }}
+    >
       <Helmet><title>PlatePals | Food Request</title></Helmet>
       {requests.length === 0 ? (
         <div className="max-w-2xl mx-auto">
@@ -38,7 +47,7 @@ const MyFoodRequest = () => {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 export default MyFoodRequest;

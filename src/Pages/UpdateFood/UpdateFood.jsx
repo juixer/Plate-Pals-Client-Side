@@ -3,6 +3,7 @@ import { Label, TextInput, Textarea } from "flowbite-react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion";
 
 const UpdateFood = () => {
   const food = useLoaderData();
@@ -38,12 +39,21 @@ const UpdateFood = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate('/')
+          navigate("/");
         }
       });
   };
   return (
-    <div data-aos="zoom-out-right" className="my-16">
+    <motion.div
+      className="my-16"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+    >
       <Helmet>
         <title>PlatePals | Update Food</title>
       </Helmet>
@@ -171,7 +181,7 @@ const UpdateFood = () => {
           </form>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

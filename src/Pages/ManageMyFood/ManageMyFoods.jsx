@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import updateAni from "../../../public/update.json";
 import Lottie from "lottie-react";
+import { motion } from "framer-motion";
 
 const ManageMyFoods = () => {
   const { user } = useAuth();
@@ -90,7 +91,15 @@ const ManageMyFoods = () => {
   };
 
   return (
-    <div data-aos="zoom-out-right" className="my-10 lg:mb-36">
+    <motion.div className="my-10 lg:mb-36"
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{
+      duration: 0.8,
+      delay: 0.5,
+      ease: [0, 0.71, 0.2, 1.01]
+    }}
+    >
       <Helmet>
         <title>PlatePals | Manage Food</title>
       </Helmet>
@@ -143,7 +152,7 @@ const ManageMyFoods = () => {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

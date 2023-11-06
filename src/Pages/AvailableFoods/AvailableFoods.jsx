@@ -3,6 +3,7 @@ import { Select } from "flowbite-react";
 import { useEffect, useState } from "react";
 import AvailableFoodCard from "./AvailableFoodCard";
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
 
 const AvailableFoods = () => {
   const [dataLoading, setDataLoading] = useState(true);
@@ -50,7 +51,15 @@ const AvailableFoods = () => {
       .then((res) => setFoods(res.data));
   }, []);
   return (
-    <div data-aos="zoom-out-right" className="my-16">
+    <motion.div className="my-16"
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{
+      duration: 0.8,
+      delay: 0.5,
+      ease: [0, 0.71, 0.2, 1.01]
+    }}
+    >
       <Helmet>
         <title>PlatePals | Available Foods</title>
       </Helmet>
@@ -102,7 +111,7 @@ const AvailableFoods = () => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

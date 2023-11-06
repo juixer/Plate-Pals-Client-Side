@@ -14,7 +14,7 @@ const AvailableFoodCard = ({ food }) => {
     donator_image,
   } = food;
   return (
-    <Card data-aos="zoom-out-right" className="rounded-xl hover:shadow-2xl duration-300 hover:-rotate-1 hover:border-green-300 ">
+    <Card data-aos="zoom-out-right" className="rounded-xl hover:shadow-2xl duration-300  hover:border-green-300 ">
       <div className="space-y-3">
         <div className="flex justify-center items-center">
           <img className="rounded-xl w-96" src={food_image} />

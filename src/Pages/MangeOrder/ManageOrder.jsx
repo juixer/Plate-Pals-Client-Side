@@ -2,6 +2,7 @@ import axios from "axios";
 import { Card } from "flowbite-react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion";
 
 const ManageOrder = () => {
   const order = useLoaderData();
@@ -39,7 +40,15 @@ const ManageOrder = () => {
     })
   }
   return (
-    <div data-aos="zoom-out-right" className="flex max-w-3xl mx-auto justify-center items-center my-16 lg:h-[450px]">
+    <motion.div className="flex max-w-3xl mx-auto justify-center items-center my-16 lg:h-[450px]"
+    initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.5,
+          ease: [0, 0.71, 0.2, 1.01]
+        }}
+    >
       <Card  className="w-full">
         <div className="flex justify-end px-4 pt-4"></div>
         <div className={`${food_status !== 'available' ? "flex flex-col md:flex-row items-center pb-10 gap-10" : ""}`}>
@@ -101,7 +110,7 @@ const ManageOrder = () => {
           )}
         </div>
       </Card>
-    </div>
+    </motion.div>
   );
 };
 
