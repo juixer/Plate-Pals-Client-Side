@@ -18,30 +18,32 @@ const FooTer = () => {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
             <div>
-              <Footer.Title title="about" />
+              <Footer.Title title="User Resources" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Our Team</Footer.Link>
-                <Footer.Link href="#">Our Office</Footer.Link>
+                <Footer.Link href="#">Food Request</Footer.Link>
+                <Footer.Link href="#">Food Management</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
-              <Footer.Title title="Legal" />
+              <Footer.Title title="Quick Links" />
               <Footer.LinkGroup col>
                 <Footer.Link href="#">Privacy Policy</Footer.Link>
                 <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
+                <Footer.Link href="#">F&Q</Footer.Link>
+                <Footer.Link href="#">About Us</Footer.Link>
               </Footer.LinkGroup>
             </div>
-          </div>
-        </div>
-        <Footer.Divider />
-        <div className="w-full sm:flex sm:items-center sm:justify-between">
-          <Footer.Copyright href="#" by="All right reserved by PlatePals" year={2023} />
-          <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+            <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <p>Follow Us</p>
             <Footer.Icon href="#" icon={BsFacebook} />
             <Footer.Icon href="#" icon={BsInstagram} />
             <Footer.Icon href="#" icon={BsTwitter} />
           </div>
+          </div>
+        </div>
+        <Footer.Divider />
+        <div className="w-full flex items-center justify-center">
+          <Footer.Copyright href="#" by="All right reserved by PlatePals" year={2023} />
         </div>
       </div>
     </Footer>

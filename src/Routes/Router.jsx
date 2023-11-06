@@ -73,7 +73,11 @@ const Router = createBrowserRouter([
       },
       {
         path: "/manage/:id",
-        element: <ManageOrder />,
+        element: (
+          <PrivateRoute>
+            <ManageOrder />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/api/pendingFoods/${params.id}`),
       },

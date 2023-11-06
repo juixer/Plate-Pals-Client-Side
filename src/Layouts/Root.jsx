@@ -2,7 +2,7 @@ import { Outlet, useNavigation } from "react-router-dom";
 import NavBar from "../Components/Navbar/NavBar";
 import loading from "../../public/loading.json";
 import Lottie from "lottie-react";
-import FooTer from "../Components/Footer/Footer";
+import FooTer from "../Components/FooTer/FooTer";
 
 const Root = () => {
   const navigation = useNavigation();
@@ -18,7 +18,7 @@ const Root = () => {
           <Outlet />
         )}
       </div>
-      <FooTer />
+     <FooTer/>
     </div>
   );
 };

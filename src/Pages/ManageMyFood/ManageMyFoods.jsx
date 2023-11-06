@@ -30,13 +30,13 @@ const ManageMyFoods = () => {
         Cell: ({ row }) => (
           <div className="p-2 space-x-2 space-y-2">
             <Link to={`/update/${row.original._id}`}>
-              <button className=" bg-emerald-300 px-3 font-semibold py-2 rounded-lg">
-                Edit
+              <button className="shadow-xl hover:bg-emerald-500  bg-emerald-300 px-3 font-semibold py-2 rounded-lg">
+                Update
               </button>
             </Link>
 
             <button
-              className="bg-red-500 text-white font-semibold px-3 py-2 rounded-lg"
+              className="shadow-xl hover:bg-amber-800 bg-red-500 text-white font-semibold px-3 py-2 rounded-lg"
               onClick={() => handleDelete(row.original)}
             >
               Delete
@@ -50,7 +50,7 @@ const ManageMyFoods = () => {
         accessor: "manage",
         Cell: ({ row }) => (
           <Link to={`/manage/${row.original._id}`}>
-            <button className=" bg-sky-400 mx-3 font-semibold px-3 py-2 rounded-lg">
+            <button className=" shadow-xl hover:bg-sky-600 bg-sky-400 mx-3 font-semibold px-3 py-2 rounded-lg">
               Manage
             </button>
           </Link>
@@ -129,7 +129,7 @@ const ManageMyFoods = () => {
                         return (
                           <td
                             {...cell.getCellProps()}
-                            className="border-2  font-semibold text-center"
+                            className="border-2  font-semibold text-center md:text-xl md:px-5 md:py-2"
                           >
                             {cell.render("Cell")}
                           </td>

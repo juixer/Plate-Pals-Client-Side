@@ -100,7 +100,7 @@ const SingleFood = () => {
             <span className="font-bold">Note:</span> {food_note}
           </p>
           <div>
-            <h5 className="md:text-5xl text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="md:text-5xl text-2xl font-bold tracking-tight mt-5 text-gray-900 dark:text-white">
               Donor Information
             </h5>
             <div className="flex items-center gap-4 my-2">
@@ -112,14 +112,14 @@ const SingleFood = () => {
                 {donator_name}
               </h1>
             </div>
-            <h1 className="font-medium">
+            <h1 className="font-medium mb-5">
               <span className="font-bold">Pickup Location:</span>{" "}
               {food_location}
             </h1>
           </div>
           <button
             onClick={() => setOpenModal(true)}
-            className="bg-emerald-300 py-2 px-3 rounded-lg w-full"
+            className="bg-emerald-300 py-2 font-semibold hover:bg-emerald-500 shadow-xl px-3 rounded-lg w-full"
           >
             Request
           </button>
