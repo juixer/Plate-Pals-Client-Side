@@ -93,7 +93,7 @@ const ManageOrder = () => {
                   Request Time:
                   <span className="font-bold ml-2">{request_date}</span>
                 </h1>
-                <h1>
+                <h1 className="max-w-xs">
                   Requester Note:
                   <span className="font-bold ml-2">{requester_note}</span>
                 </h1>

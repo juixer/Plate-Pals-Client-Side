@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import loginAni from "../../../public/login.json";
-import { FaGithub, FaGoogle } from "react-icons/fa6";
+import {  FaGoogle } from "react-icons/fa6";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
@@ -120,9 +120,7 @@ const LogIn = () => {
             >
               <FaGoogle className="text-3xl" />
             </button>
-            <button className="bg-green-300 bg-opacity-50 px-4 py-2 rounded-lg hover:bg-emerald-300">
-              <FaGithub className="text-3xl" />
-            </button>
+           
           </div>
         </div>
       </div>

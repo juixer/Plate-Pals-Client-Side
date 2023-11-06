@@ -1,9 +1,10 @@
 import axios from "axios";
-import { Select } from "flowbite-react";
+import { Button, Select } from "flowbite-react";
 import { useEffect, useState } from "react";
 import AvailableFoodCard from "./AvailableFoodCard";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import { BallTriangle } from "react-loader-spinner";
 
 const AvailableFoods = () => {
   const [dataLoading, setDataLoading] = useState(true);
@@ -16,6 +17,12 @@ const AvailableFoods = () => {
       clearTimeout(t);
     };
   }, []);
+
+  // handle showmore
+  const [showMore, setShowMore] = useState(true);
+  const handleShowMore = () => {
+    setShowMore(!showMore);
+  };
 
   const [foods, setFoods] = useState([]);
   // search
@@ -105,11 +112,49 @@ const AvailableFoods = () => {
             </div>
           </>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10 mt-10">
-            {foods.map((food) => {
-              return <AvailableFoodCard key={food._id} food={food} />;
-            })}
-          </div>
+          <>
+            {foods.length === 0 ? (
+              <div className="flex justify-center items-center py-28">
+                <BallTriangle
+                  height={100}
+                  width={100}
+                  radius={5}
+                  color="#4fa94d"
+                  ariaLabel="ball-triangle-loading"
+                  wrapperClass={{}}
+                  wrapperStyle=""
+                  visible={true}
+                />
+              </div>
+            ) : (
+              <div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10 mt-10">
+                  {showMore
+                    ? foods
+                        .slice(0, 9)
+                        .map((food) => (
+                          <AvailableFoodCard key={food._id} food={food} />
+                        ))
+                    : foods.map((food) => (
+                        <AvailableFoodCard key={food._id} food={food} />
+                      ))}
+                </div>
+                <div className="my-5 flex justify-center items-center">
+                  {foods.length > 9 ? (
+                    <Button
+                      onClick={handleShowMore}
+                      className="h-10 font-bold"
+                      gradientDuoTone="greenToBlue"
+                    >
+                      {showMore ? "Show Less" : "Show More"}
+                    </Button>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </div>
+            )}
+          </>
         )}
       </div>
     </motion.div>
