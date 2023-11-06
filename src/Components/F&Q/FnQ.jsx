@@ -1,7 +1,7 @@
 import { Accordion } from "flowbite-react";
 const FnQ = () => {
   return (
-    <div className="py-16">
+    <div data-aos="fade-up-right" className="py-16">
       <div className="space-y-8">
         <h1 className="text-center text-3xl md:text-5xl font-bold">
           Your Questions Answered

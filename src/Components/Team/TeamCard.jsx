@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaSquareXTwitter } from "react-icons/fa6";
 const TeamCard = ({ team }) => {
   const { name, img, position, short_details } = team;
   return (
-    <Card className=" duration-300 hover:-rotate-2 hover:shadow-2xl mb-5 hover:border-green-300 h-96">
+    <Card  className=" duration-300 hover:-rotate-2 hover:shadow-2xl mb-5 hover:border-green-300 h-96">
       <div className="flex justify-end px-4 pt-4"></div>
       <div className="flex flex-col items-center pb-10">
         <img

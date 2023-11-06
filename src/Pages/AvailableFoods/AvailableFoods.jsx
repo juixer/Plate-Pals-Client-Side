@@ -5,6 +5,17 @@ import AvailableFoodCard from "./AvailableFoodCard";
 import { Helmet } from "react-helmet-async";
 
 const AvailableFoods = () => {
+  const [dataLoading, setDataLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setDataLoading(false);
+    }, 1000);
+    return () => {
+      clearTimeout(t);
+    };
+  }, []);
+
   const [foods, setFoods] = useState([]);
   // search
   const handleSearch = (e) => {
@@ -39,8 +50,10 @@ const AvailableFoods = () => {
       .then((res) => setFoods(res.data));
   }, []);
   return (
-    <div className="my-16">
-        <Helmet><title>PlatePals | Available Foods</title></Helmet>
+    <div data-aos="zoom-out-right" className="my-16">
+      <Helmet>
+        <title>PlatePals | Available Foods</title>
+      </Helmet>
       <div className="max-w-xl mx-auto ">
         <form
           onSubmit={handleSearch}
@@ -73,11 +86,21 @@ const AvailableFoods = () => {
             </div>
           </form>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10 mt-10">
-          {foods.map((food) => {
-            return <AvailableFoodCard key={food._id} food={food} />;
-          })}
-        </div>
+        {dataLoading ? (
+          <>
+            <div className="flex justify-center items-center gap-16 mt-10">
+              <div className="w-64 h-96 bg-op bg-gradient-to-r from-teal-500 to-emerald-300 animate-pulse rounded-xl"></div>
+              <div className="w-64 h-96 bg-op bg-gradient-to-r from-teal-500 hidden md:block to-emerald-300 animate-pulse rounded-xl"></div>
+              <div className="w-64 h-96 bg-op bg-gradient-to-r from-teal-500 hidden lg:block to-emerald-300 animate-pulse rounded-xl"></div>
+            </div>
+          </>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-10 mt-10">
+            {foods.map((food) => {
+              return <AvailableFoodCard key={food._id} food={food} />;
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -44,7 +44,7 @@ const FoodRequestCard = ({ req }) => {
     
   }
   return (
-    <Card className="max-w-sm">
+    <Card data-aos="zoom-out-right" className="max-w-sm">
       <div className="flex justify-end px-4 pt-4"></div>
       <div className="flex flex-col items-center pb-10">
         <img

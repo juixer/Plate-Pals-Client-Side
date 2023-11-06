@@ -1,22 +1,32 @@
 import { useEffect, useState } from "react";
 import TeamCard from "./TeamCard";
 
-import '../Team/team.css'
+import "../Team/team.css";
 
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
 
 const Team = () => {
-  const [teams, setTeams] = useState([]);
-  useEffect(() => {
+  const [dataLoading, setDataLoading] = useState(true);
 
-   axios.get('http://localhost:5000/api/teams')
-   .then(res => setTeams(res.data))
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setDataLoading(false);
+    }, 1000);
+    return () => {
+      clearTimeout(t);
+    };
   }, []);
 
-  
+  const [teams, setTeams] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/teams")
+      .then((res) => setTeams(res.data));
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -36,15 +46,27 @@ const Team = () => {
   };
 
   return (
-    <div>
+    <div data-aos="fade-up-right">
       <h1 className="text-center text-3xl md:text-5xl font-bold">
         Our Volunteer Team
       </h1>
-      <div className="my-10">
-        <Slider {...settings}>
-          {teams.map((team) => <TeamCard key={team._id} team={team}/>)}
-        </Slider>
-      </div>
+      {dataLoading ? (
+        <>
+          <div className="flex justify-center items-center gap-16 mt-10">
+            <div className="w-96 h-64 bg-op bg-gradient-to-r from-teal-500 to-emerald-300 animate-pulse rounded-xl"></div>
+            <div className="w-96 h-64 bg-op bg-gradient-to-r from-teal-500 hidden md:block to-emerald-300 animate-pulse rounded-xl"></div>
+            <div className="w-96 h-64 bg-op bg-gradient-to-r from-teal-500 hidden lg:block to-emerald-300 animate-pulse rounded-xl"></div>
+          </div>
+        </>
+      ) : (
+        <div className="my-10">
+          <Slider {...settings}>
+            {teams.map((team) => (
+              <TeamCard key={team._id} team={team} />
+            ))}
+          </Slider>
+        </div>
+      )}
     </div>
   );
 };

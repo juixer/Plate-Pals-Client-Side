@@ -6,7 +6,7 @@ import {
 } from "react-icons/bs";
 const FooTer = () => {
   return (
-    <Footer container className="bg-gray-100">
+    <Footer  container className="bg-gray-100">
       <div className="w-full max-w-screen-xl mx-auto">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div>

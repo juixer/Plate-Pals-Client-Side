@@ -62,7 +62,7 @@ const Register = () => {
       });
   };
   return (
-    <div className="my-16">
+    <div data-aos="zoom-out-right" className="my-16">
       <Helmet><title>PlatePals | Register</title></Helmet>
       <div className="flex md:flex-row flex-col gap-5 justify-center items-center">
         <div className="w-80 md:w-[400px]">

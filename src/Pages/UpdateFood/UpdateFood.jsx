@@ -43,7 +43,7 @@ const UpdateFood = () => {
       });
   };
   return (
-    <div className="my-16">
+    <div data-aos="zoom-out-right" className="my-16">
       <Helmet>
         <title>PlatePals | Update Food</title>
       </Helmet>

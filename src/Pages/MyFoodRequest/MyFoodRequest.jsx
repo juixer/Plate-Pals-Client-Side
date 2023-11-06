@@ -17,7 +17,7 @@ const MyFoodRequest = () => {
       });
   }, [user.email]);
   return (
-    <div className="my-16">
+    <div data-aos="zoom-out-right" className="my-16">
       <Helmet><title>PlatePals | Food Request</title></Helmet>
       {requests.length === 0 ? (
         <div className="max-w-2xl mx-auto">

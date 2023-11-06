@@ -52,7 +52,7 @@ const AddFood = () => {
     })
   };
   return (
-    <div className="my-16">
+    <div data-aos="zoom-out-right" className="my-16">
       <Helmet><title>PlatePals | Add Food</title></Helmet>
       <div className="flex md:flex-row flex-col gap-5 justify-center items-center">
         <div>

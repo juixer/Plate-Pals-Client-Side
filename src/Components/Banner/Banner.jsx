@@ -14,7 +14,7 @@ const Banner = () => {
     };
   }, []);
   return (
-    <div className="my-10">
+    <div data-aos="zoom-out-right" className="my-10">
       {dataLoading ? (
         <div className="flex justify-center items-center">
           <ContentLoader

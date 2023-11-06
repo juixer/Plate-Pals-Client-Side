@@ -71,7 +71,7 @@ const SingleFood = () => {
   };
 
   return (
-    <Card className="max-w-5xl mx-auto my-10">
+    <Card data-aos="zoom-out-right" className="max-w-5xl mx-auto my-10">
       <Helmet>
         <title>PlatePals | {food_name}</title>
       </Helmet>
@@ -124,7 +124,7 @@ const SingleFood = () => {
             Request
           </button>
           {/* modal */}
-          <Modal show={openModal} onClose={onCloseModal} popup>
+          <Modal data-aos="zoom-out-right" show={openModal} onClose={onCloseModal} popup>
             <Modal.Header />
             <Modal.Body>
               <form className="space-y-5" onSubmit={handleFormData}>

@@ -90,7 +90,7 @@ const ManageMyFoods = () => {
   };
 
   return (
-    <div className="my-10 lg:mb-36">
+    <div data-aos="zoom-out-right" className="my-10 lg:mb-36">
       <Helmet>
         <title>PlatePals | Manage Food</title>
       </Helmet>

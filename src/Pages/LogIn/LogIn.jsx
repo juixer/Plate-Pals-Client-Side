@@ -64,7 +64,7 @@ const LogIn = () => {
   };
 
   return (
-    <div>
+    <div data-aos="zoom-out-right">
       <Helmet><title>PlatePals | LogIn</title></Helmet>
       <div className="flex md:flex-row flex-col gap-5 justify-center items-center">
         <div>

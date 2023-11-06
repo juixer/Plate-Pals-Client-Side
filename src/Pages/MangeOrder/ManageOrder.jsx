@@ -39,8 +39,8 @@ const ManageOrder = () => {
     })
   }
   return (
-    <div className="flex max-w-3xl mx-auto justify-center items-center my-16 lg:h-[450px]">
-      <Card className="w-full">
+    <div data-aos="zoom-out-right" className="flex max-w-3xl mx-auto justify-center items-center my-16 lg:h-[450px]">
+      <Card  className="w-full">
         <div className="flex justify-end px-4 pt-4"></div>
         <div className={`${food_status !== 'available' ? "flex flex-col md:flex-row items-center pb-10 gap-10" : ""}`}>
           <div className="flex flex-col items-center">

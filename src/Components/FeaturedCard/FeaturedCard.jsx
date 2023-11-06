@@ -3,7 +3,6 @@ import Fcards from "./Fcards";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ContentLoader from "react-content-loader";
 
 const FeaturedCard = () => {
   const [dataLoading, setDataLoading] = useState(true);
@@ -24,23 +23,17 @@ const FeaturedCard = () => {
       .then((res) => setFeatured(res.data));
   }, []);
   return (
-    <div className="space-y-8">
+    <div data-aos="zoom-out-right" className="space-y-8">
       <h1 className="text-center text-3xl md:text-5xl font-bold">
         Featured Foods
       </h1>
       {dataLoading ? (
         <div className="flex justify-center items-center">
-          <ContentLoader
-            speed={1}
-            className="rounded-xl responsive-content-loader"
-            backgroundColor={"#06b6d4"}
-            foregroundColor={"#14b8a6"}
-            viewBox="0 0 1200 300"
-          >
-            <rect x="10" y="0%" rx="5" ry="5" width="20%" height="90%" />
-            <rect x="33%" y="0%" rx="5" ry="5" width="20%" height="90%" />
-            <rect x="66%" y="0%" rx="5" ry="5" width="20%" height="90%" />
-          </ContentLoader>
+          <div className="flex justify-center items-center gap-16 mt-10">
+            <div className="w-64 h-96 bg-op bg-gradient-to-r from-teal-500 to-emerald-300 animate-pulse rounded-xl"></div>
+            <div className="w-64 h-96 bg-op bg-gradient-to-r from-teal-500 hidden md:block to-emerald-300 animate-pulse rounded-xl"></div>
+            <div className="w-64 h-96 bg-op bg-gradient-to-r from-teal-500 hidden lg:block to-emerald-300 animate-pulse rounded-xl"></div>
+          </div>
         </div>
       ) : (
         <>
