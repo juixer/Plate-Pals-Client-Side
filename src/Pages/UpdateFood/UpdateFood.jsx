@@ -29,7 +29,10 @@ const UpdateFood = () => {
     };
 
     axios
-      .put(`http://localhost:5000/api/myFood/${food._id}`, update)
+      .put(
+        `https://platepals-juixers-projects.vercel.app/api/myFood/${food._id}`,
+        update
+      )
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           Swal.fire({

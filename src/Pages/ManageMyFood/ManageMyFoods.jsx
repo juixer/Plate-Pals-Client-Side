@@ -15,7 +15,9 @@ const ManageMyFoods = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/myFood/${user.email}`)
+      .get(
+        `https://platepals-juixers-projects.vercel.app/api/myFood/${user.email}`
+      )
       .then((res) => setFoods(res.data));
   }, [user.email]);
 
@@ -79,7 +81,9 @@ const ManageMyFoods = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/api/myFood/${rowData._id}`)
+          .delete(
+            `https://platepals-juixers-projects.vercel.app/api/myFood/${rowData._id}`
+          )
           .then(() => {});
 
         Swal.fire("Deleted!", "Your item has been deleted.", "success");
@@ -91,14 +95,15 @@ const ManageMyFoods = () => {
   };
 
   return (
-    <motion.div className="my-10 lg:mb-36"
-    initial={{ opacity: 0, scale: 0.5 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{
-      duration: 0.8,
-      delay: 0.5,
-      ease: [0, 0.71, 0.2, 1.01]
-    }}
+    <motion.div
+      className="my-10 lg:mb-36"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
     >
       <Helmet>
         <title>PlatePals | Manage Food</title>

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const ManageOrder = () => {
   const order = useLoaderData();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const {
     _id,
     request_date,
@@ -18,40 +18,50 @@ const ManageOrder = () => {
     food_image,
     food_status,
     food_name,
-    requester_note
+    requester_note,
   } = order;
-  
 
   const handleDeliverButton = () => {
     const delivered = {
-        food_status: 'delivered'
+      food_status: "delivered",
     };
 
-    axios.patch(`http://localhost:5000/api/delivery/${_id}`, delivered)
-    .then(res => {
+    axios
+      .patch(
+        `https://platepals-juixers-projects.vercel.app/api/delivery/${_id}`,
+        delivered
+      )
+      .then((res) => {
         Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Your Food on the way to Requester",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate(-1);
-    })
-  }
+          position: "center",
+          icon: "success",
+          title: "Your Food on the way to Requester",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(-1);
+      });
+  };
   return (
-    <motion.div className="flex max-w-3xl mx-auto justify-center items-center my-16 lg:h-[450px]"
-    initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          duration: 0.8,
-          delay: 0.5,
-          ease: [0, 0.71, 0.2, 1.01]
-        }}
+    <motion.div
+      className="flex max-w-3xl mx-auto justify-center items-center my-16 lg:h-[450px]"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
     >
-      <Card  className="w-full">
+      <Card className="w-full">
         <div className="flex justify-end px-4 pt-4"></div>
-        <div className={`${food_status !== 'available' ? "flex flex-col md:flex-row items-center pb-10 gap-10" : ""}`}>
+        <div
+          className={`${
+            food_status !== "available"
+              ? "flex flex-col md:flex-row items-center pb-10 gap-10"
+              : ""
+          }`}
+        >
           <div className="flex flex-col items-center">
             <img
               alt={food_name}
@@ -92,16 +102,26 @@ const ManageOrder = () => {
                 </h1>
                 <h1>
                   Wants to Donate:
-                  <span className="font-bold ml-2">{money? money : 0}</span>
+                  <span className="font-bold ml-2">{money ? money : 0}</span>
                   BDT
                 </h1>
                 <div>
-                    {food_status === 'delivered' ? <button onClick={handleDeliverButton} className={`bg-emerald-300 py-2 px-3 rounded-lg font-semibold hover:cursor-not-allowed`} disabled>
-                    Donated
-                  </button> : <button onClick={handleDeliverButton} className={`bg-emerald-300 py-2 px-3 rounded-lg font-semibold`}>
-                    Donate
-                  </button> }
-                  
+                  {food_status === "delivered" ? (
+                    <button
+                      onClick={handleDeliverButton}
+                      className={`bg-emerald-300 py-2 px-3 rounded-lg font-semibold hover:cursor-not-allowed`}
+                      disabled
+                    >
+                      Donated
+                    </button>
+                  ) : (
+                    <button
+                      onClick={handleDeliverButton}
+                      className={`bg-emerald-300 py-2 px-3 rounded-lg font-semibold`}
+                    >
+                      Donate
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

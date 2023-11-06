@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 import { motion } from "framer-motion";
 
 const AddFood = () => {
-  const {user} = useAuth()
+  const { user } = useAuth();
 
   const handleFormData = (e) => {
     e.preventDefault();
@@ -36,34 +36,38 @@ const AddFood = () => {
       food_status,
       donator_email,
       donator_name,
-      donator_image
+      donator_image,
     };
-    axios.post('http://localhost:5000/api/foods', foodInfo)
-    .then(res => {
-      const inserted = res.data.insertedId
-      if(inserted){
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Your food has been added",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        form.reset()
-      }
-    })
+    axios
+      .post("https://platepals-juixers-projects.vercel.app/api/foods", foodInfo)
+      .then((res) => {
+        const inserted = res.data.insertedId;
+        if (inserted) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your food has been added",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+        }
+      });
   };
   return (
-    <motion.div className="my-16"
-    initial={{ opacity: 0, scale: 0.5 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{
-      duration: 0.8,
-      delay: 0.5,
-      ease: [0, 0.71, 0.2, 1.01]
-    }}
+    <motion.div
+      className="my-16"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
     >
-      <Helmet><title>PlatePals | Add Food</title></Helmet>
+      <Helmet>
+        <title>PlatePals | Add Food</title>
+      </Helmet>
       <div className="flex md:flex-row flex-col gap-5 justify-center items-center">
         <div>
           <Lottie animationData={addFoodAni} />

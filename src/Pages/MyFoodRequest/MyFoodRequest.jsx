@@ -12,22 +12,27 @@ const MyFoodRequest = () => {
   const { user } = useAuth();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/myRequest/${user.email}`)
+      .get(
+        `https://platepals-juixers-projects.vercel.app/api/myRequest/${user.email}`
+      )
       .then((res) => {
         setRequests(res.data);
       });
   }, [user.email]);
   return (
-    <motion.div className="my-16"
-    initial={{ opacity: 0, scale: 0.5 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{
-      duration: 0.8,
-      delay: 0.5,
-      ease: [0, 0.71, 0.2, 1.01]
-    }}
+    <motion.div
+      className="my-16"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
     >
-      <Helmet><title>PlatePals | Food Request</title></Helmet>
+      <Helmet>
+        <title>PlatePals | Food Request</title>
+      </Helmet>
       {requests.length === 0 ? (
         <div className="max-w-2xl mx-auto">
           <h1 className="text-center text-3xl md:text-5xl font-bold mb-5">
@@ -38,7 +43,7 @@ const MyFoodRequest = () => {
       ) : (
         <div>
           <h1 className="text-center text-3xl md:text-5xl font-bold mb-5">
-          Food Requests
+            Food Requests
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {requests.map((req) => {

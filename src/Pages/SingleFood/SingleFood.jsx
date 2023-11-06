@@ -57,7 +57,10 @@ const SingleFood = () => {
     };
 
     axios
-      .patch(`http://localhost:5000/api/request/${_id}`, request)
+      .patch(
+        `https://platepals-juixers-projects.vercel.app/api/request/${_id}`,
+        request
+      )
       .then((res) => {
         console.log(res.data);
         Swal.fire({

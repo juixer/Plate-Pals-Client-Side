@@ -23,7 +23,9 @@ const AvailableFoods = () => {
     e.preventDefault();
     const name = e.target.search.value;
     axios
-      .get(`http://localhost:5000/api/foods?name=${name}`)
+      .get(
+        `https://platepals-juixers-projects.vercel.app/api/foods?name=${name}`
+      )
       .then((res) => setFoods(res.data));
   };
   // sort
@@ -32,33 +34,38 @@ const AvailableFoods = () => {
 
     if (selectedValue === "short") {
       axios
-        .get("http://localhost:5000/api/foodsExpireDataShort")
+        .get(
+          "https://platepals-juixers-projects.vercel.app/api/foodsExpireDataShort"
+        )
         .then((res) => setFoods(res.data));
     } else if (selectedValue === "long") {
       axios
-        .get("http://localhost:5000/api/foodsExpireDataLong")
+        .get(
+          "https://platepals-juixers-projects.vercel.app/api/foodsExpireDataLong"
+        )
         .then((res) => setFoods(res.data));
     } else {
       axios
-        .get("http://localhost:5000/api/availableFoods")
+        .get("https://platepals-juixers-projects.vercel.app/api/availableFoods")
         .then((res) => setFoods(res.data));
     }
   };
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/availableFoods")
+      .get("https://platepals-juixers-projects.vercel.app/api/availableFoods")
       .then((res) => setFoods(res.data));
   }, []);
   return (
-    <motion.div className="my-16"
-    initial={{ opacity: 0, scale: 0.5 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{
-      duration: 0.8,
-      delay: 0.5,
-      ease: [0, 0.71, 0.2, 1.01]
-    }}
+    <motion.div
+      className="my-16"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
     >
       <Helmet>
         <title>PlatePals | Available Foods</title>
