@@ -15,9 +15,9 @@ const ManageMyFoods = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://platepals-juixers-projects.vercel.app/api/myFood/${user.email}`
-      )
+      .get(`https://platepals.vercel.app/api/myFood?email=${user.email}`, {
+        withCredentials: true,
+      })
       .then((res) => setFoods(res.data));
   }, [user.email]);
 
@@ -81,9 +81,7 @@ const ManageMyFoods = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(
-            `https://platepals-juixers-projects.vercel.app/api/myFood/${rowData._id}`
-          )
+          .delete(`https://platepals.vercel.app/api/myFood/${rowData._id}`)
           .then(() => {});
 
         Swal.fire("Deleted!", "Your item has been deleted.", "success");

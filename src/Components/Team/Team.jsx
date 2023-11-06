@@ -23,7 +23,7 @@ const Team = () => {
   const [teams, setTeams] = useState([]);
   useEffect(() => {
     axios
-      .get("https://platepals-juixers-projects.vercel.app/api/teams")
+      .get("https://platepals.vercel.app/api/teams")
       .then((res) => setTeams(res.data));
   }, []);
 

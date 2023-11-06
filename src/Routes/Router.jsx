@@ -51,9 +51,7 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://platepals-juixers-projects.vercel.app/api/food/${params.id}`
-          ),
+          fetch(`https://platepals.vercel.app/api/food/${params.id}`),
       },
       {
         path: "/manageFood",
@@ -71,9 +69,7 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://platepals-juixers-projects.vercel.app/api/food/${params.id}`
-          ),
+          fetch(`https://platepals.vercel.app/api/food/${params.id}`),
       },
       {
         path: "/manage/:id",
@@ -83,9 +79,7 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://platepals-juixers-projects.vercel.app/api/pendingFoods/${params.id}`
-          ),
+          fetch(`https://platepals.vercel.app/api/pendingFoods/${params.id}`),
       },
       {
         path: "/foodRequest",

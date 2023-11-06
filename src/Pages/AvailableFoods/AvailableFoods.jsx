@@ -23,9 +23,7 @@ const AvailableFoods = () => {
     e.preventDefault();
     const name = e.target.search.value;
     axios
-      .get(
-        `https://platepals-juixers-projects.vercel.app/api/foods?name=${name}`
-      )
+      .get(`https://platepals.vercel.app/api/foods?name=${name}`)
       .then((res) => setFoods(res.data));
   };
   // sort
@@ -34,26 +32,22 @@ const AvailableFoods = () => {
 
     if (selectedValue === "short") {
       axios
-        .get(
-          "https://platepals-juixers-projects.vercel.app/api/foodsExpireDataShort"
-        )
+        .get("https://platepals.vercel.app/api/foodsExpireDataShort")
         .then((res) => setFoods(res.data));
     } else if (selectedValue === "long") {
       axios
-        .get(
-          "https://platepals-juixers-projects.vercel.app/api/foodsExpireDataLong"
-        )
+        .get("https://platepals.vercel.app/api/foodsExpireDataLong")
         .then((res) => setFoods(res.data));
     } else {
       axios
-        .get("https://platepals-juixers-projects.vercel.app/api/availableFoods")
+        .get("https://platepals.vercel.app/api/availableFoods")
         .then((res) => setFoods(res.data));
     }
   };
 
   useEffect(() => {
     axios
-      .get("https://platepals-juixers-projects.vercel.app/api/availableFoods")
+      .get("https://platepals.vercel.app/api/availableFoods")
       .then((res) => setFoods(res.data));
   }, []);
   return (

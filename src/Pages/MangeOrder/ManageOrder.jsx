@@ -27,10 +27,7 @@ const ManageOrder = () => {
     };
 
     axios
-      .patch(
-        `https://platepals-juixers-projects.vercel.app/api/delivery/${_id}`,
-        delivered
-      )
+      .patch(`https://platepals.vercel.app/api/delivery/${_id}`, delivered)
       .then((res) => {
         Swal.fire({
           position: "center",

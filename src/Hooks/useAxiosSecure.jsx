@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { useEffect } from "react";
 
 const axiosSecure = axios.create({
-  baseURL: "https://platepals-juixers-projects.vercel.app",
+  baseURL: "https://platepals.vercel.app",
   withCredentials: true,
 });
 

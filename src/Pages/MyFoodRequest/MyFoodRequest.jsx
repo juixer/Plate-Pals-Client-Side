@@ -12,9 +12,9 @@ const MyFoodRequest = () => {
   const { user } = useAuth();
   useEffect(() => {
     axios
-      .get(
-        `https://platepals-juixers-projects.vercel.app/api/myRequest/${user.email}`
-      )
+      .get(`https://platepals.vercel.app/api/myRequest?email=${user.email}`, {
+        withCredentials: true,
+      })
       .then((res) => {
         setRequests(res.data);
       });

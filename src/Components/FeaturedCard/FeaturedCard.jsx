@@ -19,7 +19,7 @@ const FeaturedCard = () => {
   const [featured, setFeatured] = useState([]);
   useEffect(() => {
     axios
-      .get("https://platepals-juixers-projects.vercel.app/api/availableFoods")
+      .get("https://platepals.vercel.app/api/availableFoods")
       .then((res) => setFeatured(res.data));
   }, []);
   return (

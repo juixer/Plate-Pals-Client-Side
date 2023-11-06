@@ -34,10 +34,7 @@ const FoodRequestCard = ({ req }) => {
       requester_name,
     };
     axios
-      .patch(
-        `https://platepals-juixers-projects.vercel.app/api/request/${id}`,
-        cancel
-      )
+      .patch(`https://platepals.vercel.app/api/request/${id}`, cancel)
       .then((res) => {
         console.log(res.data);
         Swal.fire({

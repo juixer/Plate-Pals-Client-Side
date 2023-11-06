@@ -39,7 +39,7 @@ const AddFood = () => {
       donator_image,
     };
     axios
-      .post("https://platepals-juixers-projects.vercel.app/api/foods", foodInfo)
+      .post("https://platepals.vercel.app/api/foods", foodInfo)
       .then((res) => {
         const inserted = res.data.insertedId;
         if (inserted) {
@@ -112,6 +112,10 @@ const AddFood = () => {
                 required
                 shadow
               />
+              <span className=" font-semibold">
+                <span className="text-red-500">*</span>For best results, please
+                provide an image with dimensions of 500px by 500px.
+              </span>
             </div>
             {/* input */}
             <div>
