@@ -146,7 +146,7 @@ const AvailableFoods = () => {
                       className="h-10 font-bold"
                       gradientDuoTone="greenToBlue"
                     >
-                      {showMore ? "Show Less" : "Show More"}
+                      {showMore ? "Show More" : "Show Less"}
                     </Button>
                   ) : (
                     ""
